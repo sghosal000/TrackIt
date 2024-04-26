@@ -23,28 +23,46 @@ function LoginPage() {
     };
 
     return (
-        <div className="login-page">
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="userId">User ID:</label>
+        <div className="flex h-screen bg-gray-100">
+      <div className="w-1/2 flex flex-col items-center justify-center px-16 ">
+        <form className="flex justify-center items-center h-screen">
+          <div className="bg-white shadow-md rounded-lg px-8 py-6 w-full max-w-md">
+            <h1 className="text-xl font-bold mb-4 text-center">Login</h1>
+            <div className="space-y-4">
+              <div className="flex flex-col">
+                <label htmlFor="username" className="text-sm font-medium mb-2">
+                  Username
+                </label>
                 <input
-                    type="text"
-                    id="userId"
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                    required
+                  type="text"
+                  id="username"
+                  className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
                 />
-                <label htmlFor="password">Password:</label>
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="password" className="text-sm font-medium mb-2">
+                  Password
+                </label>
                 <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
+                  type="password"
+                  id="password"
+                  className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
                 />
-                <button type="submit">Login</button>
-            </form>
-        </div>
+              </div>
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md py-2 px-4 focus:outline-none"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div className="w-1/2 flex items-center justify-center">
+        <img src="images/authimg.jpg" alt="auth" className="w-90 h-84" />
+      </div>
+    </div>
     );
 }
 
