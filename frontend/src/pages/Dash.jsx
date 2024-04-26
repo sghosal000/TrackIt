@@ -8,6 +8,7 @@ const Dash = () => {
     { name: 'Dashboard', link: '#' },
     { name: 'Income', link: '#' },
     { name: 'Expense', link: '#' },
+    { name: 'Investment', link: '#' },
     { name: 'Budget', link: '#' },
     { name: 'Recurring Transactions', link: '#' },
   ];

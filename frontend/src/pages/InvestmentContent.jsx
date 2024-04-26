@@ -1,11 +1,11 @@
 import React from 'react';
 import TransactionForm from './TransactionForm';
 
-const ExpenseContent = ({expenses}) => {
+const ExpenseContent = ({investments}) => {
 	return (
 		<div className="flex justify-center mt-32">
 			<div className="w-1/2 pr-4">
-				<TransactionForm type={ "expense" }/>
+				<TransactionForm type={ "investment" }/>
 			</div>
 			<div className="w-1/2 pl-4">
 				<div className="bg-gray-100 p-4 h-64 overflow-y-auto">
@@ -19,12 +19,12 @@ const ExpenseContent = ({expenses}) => {
 							</tr>
 						</thead>
 						<tbody>
-							{expenses && expenses.map(expense =>
-								<tr key={expense._id}>
-									<td className="border-b py-2">{expense.createdAt.split('T')[0]}</td>
-									<td className="border-b py-2">{expense.amount}</td>
-									<td className="border-b py-2">{expense.categoryid}</td>
-									<td className="border-b py-2">{expense.note}</td>
+							{investments && investments.map(investment =>
+								<tr key={investment._id}>
+									<td className="border-b py-2">{investment.createdAt.split('T')[0]}</td>
+									<td className="border-b py-2">{investment.amount}</td>
+									<td className="border-b py-2">{investment.categoryid}</td>
+									<td className="border-b py-2">{investment.note}</td>
 								</tr>
 							)}
 						</tbody>

@@ -1,13 +1,13 @@
 import axios from "axios";
 
-// const BASE_URL = import.meta.env.BASE_URL
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 class AuthService {
     async login(username, password) {
         const credentials = { id: username, password };
 
         try {
-            const response = await axios.post("http://localhost:5000" + "/auth/login", credentials);
+            const response = await axios.post(BASE_URL + "/auth/login", credentials);
             const { accessToken } = response.data
             localStorage.setItem("jwtAccessToken", accessToken)
             return { status: true }
@@ -18,15 +18,15 @@ class AuthService {
     }
 
     isLoggedIn() {
-        return localStorage.getItem("jwtToken") !== null;
+        return localStorage.getItem("jwtAccessToken") !== null;
     }
 
     getToken() {
-        return localStorage.getItem("jwtToken");
+        return localStorage.getItem("jwtAccessToken");
     }
 
     logout() {
-        localStorage.removeItem("jwtToken");
+        localStorage.removeItem("jwtAccessToken");
     }
 
     attachTokenToRequest(config) {
