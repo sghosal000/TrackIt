@@ -1,15 +1,13 @@
-const jwt = require("jsonwebtoken")
-require('dotenv').config()
 import axios from "axios";
 
-const BASE_URL = process.env.BASE_URL
+// const BASE_URL = import.meta.env.BASE_URL
 
 class AuthService {
     async login(username, password) {
-        const credentials = { username, password };
+        const credentials = { id: username, password };
 
         try {
-            const response = await axios.post(BASE_URL, credentials);
+            const response = await axios.post("http://localhost:5000" + "/auth/login", credentials);
             const { accessToken } = response.data
             localStorage.setItem("jwtAccessToken", accessToken)
             return { status: true }
