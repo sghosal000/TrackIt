@@ -2,7 +2,11 @@ import React from 'react'
 
 function BudgetContent() {
   return (
-    <div>BudgetContent</div>
+    <>
+      <div className='mt-32'>
+        budget
+      </div>
+    </>
   )
 }
 

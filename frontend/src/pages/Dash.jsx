@@ -21,7 +21,7 @@ const Dash = () => {
               key={tab.name}
               className={`text-gray-600 font-medium cursor-pointer ${
                 activeTab === tab.name.toLowerCase()
-                  ? 'text-blue-800'
+                  ? 'text-blue-200'
                   : 'hover:text-blue-200'
               }`}
               onClick={() => setActiveTab(tab.name.toLowerCase())}
