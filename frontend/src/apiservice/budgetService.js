@@ -25,13 +25,13 @@ class BudgetService {
         return allBudgets.filter((budget) => budget.type === type);
     }
 
-    // findExpStatus(){
-    //     try {
+    findExpStatus(){
+        try {
             
-    //     } catch (error) {
+        } catch (error) {
             
-    //     }
-    // }
+        }
+    }
 
     async addBudget(budget) {
         try {

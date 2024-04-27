@@ -6,21 +6,24 @@ import Layout from './layouts/Layout'
 import Dash from './pages/Dash'
 import LandingPage from './pages/LandingPage'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
-	const [loggedin, setLoggedin] = useState(false)
+	const [loggedin, setLoggedin] = useState()
+	useEffect(()=>{
+		setLoggedin(false)
+	  }, [])
 	const handleLogin = () => {
 		setLoggedin(true);
 	}
-	const handleLogout = () => {
+	function handleLogout(){
 		setLoggedin(false);
 	}
 
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <Layout loggedin={loggedin}/>,
+			element: <Layout loggedin={loggedin} handleLogOut={setLoggedin}/>,
 			children: [
 				{ path: "/", element: <LandingPage /> },
 				{ path: "/auth/login", element: <Login onLogin={handleLogin}/> },
