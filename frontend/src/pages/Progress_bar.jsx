@@ -1,9 +1,9 @@
 import React from 'react'
  
-const Progress_bar = ({progress,height}) => {
+const Progress_bar = ({progress}) => {
     
     const Parentdiv = {
-        height: height,
+        height: 30,
         width: '100%',
         backgroundColor: 'whitesmoke',
         borderRadius: 40,
