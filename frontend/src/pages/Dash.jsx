@@ -16,13 +16,13 @@ const Dash = () => {
   return (
     <div>
       <nav className="absolute mt-20 bg-gray-200 left-1/2 transform -translate-x-1/2 w-2/3 rounded-xl shadow-md px-8 z-10">
-        <ul className="flex justify-between mt-4">
+        <ul className="flex my-auto justify-between mt-4">
           {tabs.map((tab) => (
             <li
               key={tab.name}
               className={`text-gray-600 font-medium cursor-pointer ${
                 activeTab === tab.name.toLowerCase()
-                  ? 'text-blue-200'
+                  ? 'font-extrabold text-lg  text-blue-900'
                   : 'hover:text-blue-200'
               }`}
               onClick={() => setActiveTab(tab.name.toLowerCase())}
