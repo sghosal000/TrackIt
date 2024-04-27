@@ -18,7 +18,7 @@ const ExpenseContent = ({investments}) => {
 								<th className="py-2">Note</th>
 							</tr>
 						</thead>
-						<tbody className='bg-red-100'>
+						<tbody className='bg-blue-200'>
 							{investments && investments.map(investment =>
 								<tr key={investment._id}>
 									<td className="border-b py-2 text-center">{investment.createdAt.split('T')[0]}</td>

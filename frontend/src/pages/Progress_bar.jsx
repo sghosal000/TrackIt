@@ -7,7 +7,8 @@ const Progress_bar = ({progress}) => {
         width: '100%',
         backgroundColor: 'whitesmoke',
         borderRadius: 40,
-        margin: 50
+        margin: 50,
+        border: 'solid light-grey 1px'
       }
      
       const Childdiv = {
