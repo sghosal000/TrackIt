@@ -40,10 +40,10 @@ const Signup = () => {
     };
 
     return (
-        <div className="flex h-screen bg-gray-100">
-            <div className="w-1/2 flex flex-col items-center justify-center px-16">
-                <form className="flex justify-center items-center h-screen" onSubmit={handleSubmit}>
-                    <div className="bg-white shadow-md rounded-lg px-8 py-6 w-full max-w-md">
+        <div className="flex h-screen ">
+            <div className="w-1/2 flex flex-col items-center justify-center ">
+                <form className="flex justify-center items-center h-screen w-full" onSubmit={handleSubmit}>
+                    <div className="bg-white shadow-xl rounded-lg px-8 py-6 w-full max-w-md">
                         <h1 className="text-xl font-bold mb-4 text-center">Sign Up</h1>
                         <p>{message}</p>
                         <div className="space-y-4">
@@ -139,8 +139,9 @@ const Signup = () => {
                     </div>
                 </form>
             </div>
-            <div className="w-1/2 flex items-center justify-center">
-                <img src="images/authimg.jpg" alt="auth" className="w-90 h-84" />
+            <div className="w-1/2 flex items-center justify-center ">
+                <img src="https://img.freepik.com/free-vector/verification-technologies-abstract-concept-illustration_335657-3894.jpg?w=740&t=st=1714193749~exp=1714194349~hmac=addfd8d61197f7668fcb3fb9faf11eecdb0639ab0faa379308710d1d1b139b9e" 
+                alt="auth" className="w-90 h-84" />
             </div>
         </div>
     );
