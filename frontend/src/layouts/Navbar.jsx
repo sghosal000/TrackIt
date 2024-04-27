@@ -9,7 +9,7 @@ const Navbar = () => {
 
       {/* Login/Signup Options (Right) */}
       <ul className="flex space-x-4">
-        <li className="text-gray-600 font-medium hover:text-blue-500 cursor-pointer"><Link to="/auth">Login</Link></li>
+        <li className="text-gray-600 font-medium hover:text-blue-500 cursor-pointer"><Link to="/auth/login">Login</Link></li>
         <li className="text-gray-600 font-medium hover:text-blue-500 cursor-pointer">Signup</li>
       </ul>
     </nav>
