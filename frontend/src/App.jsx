@@ -13,6 +13,9 @@ function App() {
 	const handleLogin = () => {
 		setLoggedin(true);
 	}
+	const handleLogout = () => {
+		setLoggedin(false);
+	}
 
 	const router = createBrowserRouter([
 		{
