@@ -41,33 +41,30 @@ const TransactionForm = ({ type }) => {
 			<h3 className="text-lg font-semibold mb-4">Add Transaction</h3>
 			<p>{message}</p>
 			<form className="flex flex-col items-center space-y-4 form-control" onSubmit={handleSubmit}>
-				<label className="text-gray-600">
-					Amount:
+
 					<input
 						type="number"
 						ref={amountRef}
-						className="input-field"
+						className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
 						style={{ border: '1px solid #ccc' }}
+						placeholder='Amount'
 					/>
-				</label>
-				<label className="text-gray-600">
-					Category Name:
+
 					<input
 						type="text"
 						ref={categoryNameRef}
-						className="input-field"
+						className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
 						style={{ border: '1px solid #ccc' }}
+						placeholder='Category Name'
 					/>
-				</label>
-				<label className="text-gray-600">
-					Note:
+
 					<textarea
 						ref={noteRef}
-						className="input-field"
+						className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
 						style={{ border: '1px solid #ccc', minHeight: '80px' }}
+						placeholder='Note'
 					/>
-				</label>
-				<button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded" type="submit">Add</button>
+				<button className="bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded" type="submit">Add</button>
 			</form>
 		</div>
 	);

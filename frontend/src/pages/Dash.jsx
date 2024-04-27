@@ -20,7 +20,7 @@ const Dash = () => {
           {tabs.map((tab) => (
             <li
               key={tab.name}
-              className={`text-gray-600 font-medium cursor-pointer ${
+              className={`pb-3 text-gray-600 font-medium cursor-pointer ${
                 activeTab === tab.name.toLowerCase()
                   ? 'font-extrabold text-lg  text-blue-900'
                   : 'hover:text-blue-200'
