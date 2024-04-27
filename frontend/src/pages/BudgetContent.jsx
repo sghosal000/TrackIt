@@ -5,18 +5,19 @@ function BudgetContent() {
   return (
     <div class="row flex">
       <div className='col mt-32 w-1/2'>
-        budget
+      <h2 className="text-center font-bold">Budget Form</h2>
+        
       </div>
       <div className='col mt-32 w-1/2'>
+            <h3 className="heading font-bold">Budget Stats</h3>
       <div className="App">
-            <h3 className="heading">Progress Bar</h3>
+          <label htmlFor="">Expense</label>
             <Progressbar
-                progress="30"
-                height={30}
+                progress={(42/67*100).toFixed(2)}
             />
+          <label htmlFor="">Investment</label>
             <Progressbar
                 progress="81"
-                height={30}
             />
             
         </div>
