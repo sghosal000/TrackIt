@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import transactionService from '../apiservice/TransactionService';
 
 
@@ -31,6 +31,9 @@ const TransactionForm = ({ type }) => {
 		else{
 			setMessage("Error.. try again")
 		}
+		useEffect(()=>{
+			getTransactions()
+		}, [])
 	}
 
 	return (
@@ -64,19 +67,6 @@ const TransactionForm = ({ type }) => {
 						style={{ border: '1px solid #ccc', minHeight: '80px' }}
 					/>
 				</label>
-				{/* <label className="text-gray-600">
-					Type:
-					<select
-						ref={typeRef}
-						className="input-field"
-						style={{ border: '1px solid #ccc' }}
-					>
-						<option value="">Select Type</option>
-						<option value="income">Income</option>
-						<option value="expense">Expense</option>
-						<option value="investment">Investment</option>
-					</select>
-				</label> */}
 				<button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded" type="submit">Add</button>
 			</form>
 		</div>
