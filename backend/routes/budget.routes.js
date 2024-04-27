@@ -4,6 +4,8 @@ const verifyRole = require("../middlewares/verifyRole.middleware")
 const {
     createBudget,
     getBudgets,
+    expBudgetStatus,
+    invBudgetStatus,
     getAllBudgets,
     getAllBudgetsByUsername,
     deleteBudgetById,
@@ -14,6 +16,8 @@ const budgetRouter = express.Router()
 
 budgetRouter.post('/add', getUser, createBudget)
 budgetRouter.get('/', getUser, getBudgets)
+budgetRouter.get('/expensestatus', getUser, expBudgetStatus)
+budgetRouter.get('/investmentstatus', getUser, invBudgetStatus)
 budgetRouter.get('/all', verifyRole('admin'), getAllBudgets)
 budgetRouter.get('/all/:username', verifyRole('admin'), getAllBudgetsByUsername)
 budgetRouter.delete('/delete/:id', getUser, deleteBudgetById)

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LandingPage = () => {
+const LandingPage = (loggedin) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 mt-5">
       {/* Header */}

@@ -1,4 +1,5 @@
 const Budget = require("../models/budget.model")
+const Transaction = require("../models/transaction.model")
 const User = require("../models/user.model")
 
 const createBudget = async (req, res) =>{
@@ -59,6 +60,62 @@ const getBudgets = async (req, res) => {
             return { ...budget._doc, isActive: budget.endDate >= new Date() }
         })
         res.status(200).json( formattedBudgets )
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+}
+
+const expBudgetStatus = async (req, res) => {
+    try {
+        const userid = req.user.userid
+        if (!userid) {
+            return res.status(401).json({ message: 'Unauthorized' })
+        }
+ 
+        const budget = await Budget.findOne({ userid: userid, type: "expense" })
+        const {startDate, endDate} = budget
+        // const expenseSum = await Transaction.aggregate([
+        //     {
+        //         $match: {
+        //             userid: userid,
+        //             type: 'expense',
+        //             createdAt: { $gte: startDate, $lte: endDate }
+        //         }
+        //     },
+        //     {
+        //         $group: {
+        //             _id: null,
+        //             totalAmount: { $sum: 1 }
+        //             // totalAmount: { $sum: "$amount" }, // Use "$amount" field for sum
+
+        //         }
+        //     }
+        // ])
+        // const totalSpent = expenseSum.length > 0 ? expenseSum[0].totalAmount : 0
+
+        const exps = await Transaction.find({userid, type: 'expense', createdAt: { $gte: startDate, $lte: endDate }})
+        // console.log(exps);
+        // console.log({startDate, endDate});
+        // console.log(expenseSum);
+        res.status(200).json({ transactions: exps, goal: budget.amount })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+}
+const invBudgetStatus = async (req, res) => {
+    try {
+        const userid = req.user.userid
+        if (!userid) {
+            return res.status(401).json({ message: 'Unauthorized' })
+        }
+ 
+        const budget = await Budget.findOne({ userid: userid, type: "investment" })
+        const {startDate, endDate} = budget
+
+        const exps = await Transaction.find({userid, type: 'investment', createdAt: { $gte: startDate, $lte: endDate }})
+        res.status(200).json({ transactions: exps, goal: budget.amount })
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal server error" });
@@ -138,6 +195,8 @@ const deleteBudgetByIdAdmin = async (req, res) => {
 module.exports = {
     createBudget,
     getBudgets,
+    expBudgetStatus,
+    invBudgetStatus,
     getAllBudgets,
     getAllBudgetsByUsername,
     deleteBudgetById,

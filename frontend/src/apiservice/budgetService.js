@@ -25,6 +25,14 @@ class BudgetService {
         return allBudgets.filter((budget) => budget.type === type);
     }
 
+    // findExpStatus(){
+    //     try {
+            
+    //     } catch (error) {
+            
+    //     }
+    // }
+
     async addBudget(budget) {
         try {
             const res = await axios.post(BASE_URL + "/budgets/add", budget, authService.attachTokenToRequest(config))

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import authService from "../apiservice/AuthService";
 
-const Login = () => {
+const Login = ({onLogin}) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [message, setMessage] = useState('')
@@ -15,6 +15,7 @@ const Login = () => {
             const { status } = await authService.login(username, password); // Destructure response for status
             if (status) {
                 setMessage("Login successful")
+                onLogin()
                 navigate("/dash")
             } else {
                 setMessage("Invalid username or password");
