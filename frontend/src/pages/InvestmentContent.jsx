@@ -7,8 +7,8 @@ const ExpenseContent = ({investments}) => {
 			<div className="w-1/3 pr-4">
 				<TransactionForm type={ "investment" }/>
 			</div>
-			<div className="w-2/3 pl-4">
-				<div className="bg-gray-100 p-4  overflow-y-auto">
+			<div className="w-2/3 pl-4 shadow-xl">
+				<div className="bg-gray-100 p-4 overflow-y-auto">
 					<table className="w-full">
 						<thead>
 							<tr>
@@ -18,7 +18,7 @@ const ExpenseContent = ({investments}) => {
 								<th className="py-2">Note</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody className='bg-red-100'>
 							{investments && investments.map(investment =>
 								<tr key={investment._id}>
 									<td className="border-b py-2 text-center">{investment.createdAt.split('T')[0]}</td>

@@ -38,7 +38,7 @@ const Render = ({ activeTab }) => {
 	const renderContent = () => {
 		switch (activeTab) {
 			case 'dashboard':
-				return <DashboardContent />;
+				return <DashboardContent transactions={transactions} />;
 			case 'income':
 				return <IncomeContent incomes={incomes}/>;
 			case 'expense':

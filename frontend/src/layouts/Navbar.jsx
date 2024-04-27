@@ -12,6 +12,7 @@ const Navbar = ({loggedin}) => {
 					<li className="text-gray-600 font-medium hover:text-blue-500 cursor-pointer"><Link  to="/auth/signup">Signup</Link></li>
 				</ul> :
 				<ul className="flex space-x-4">
+					<li className="text-gray-600 font-medium hover:text-blue-500 cursor-pointer"><Link to="/dash">Dashboard</Link></li>
 					<li className="text-gray-600 font-medium hover:text-blue-500 cursor-pointer">Logout</li>
 				</ul>}
 
