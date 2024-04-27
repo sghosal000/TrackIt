@@ -9,10 +9,10 @@ const config = {
     },
 }
 
-class TransactionService {
-    async getAllTransactions() {
+class BudgetService {
+    async getBudgets() {
         try {
-            const res = await axios.get(BASE_URL + "/transactions", authService.attachTokenToRequest(config))
+            const res = await axios.get(BASE_URL + "/budgets", authService.attachTokenToRequest(config))
             return { status: true, data: res.data }
         } catch (error) {
             console.error(error)
@@ -20,23 +20,23 @@ class TransactionService {
         }
     }
 
-    filterByType(allTransactions, type) {
-        console.log(allTransactions);
-        return allTransactions.filter((transaction) => transaction.type === type);
+    filterByType(allBudgets, type) {
+        console.log(allBudgets);
+        return allBudgets.filter((budget) => budget.type === type);
     }
 
-    async addTransaction(transaction) {
+    async addBudget(budget) {
         try {
-            const res = await axios.post(BASE_URL + "/transactions/add", transaction, authService.attachTokenToRequest(config))
+            const res = await axios.post(BASE_URL + "/budgets/add", budget, authService.attachTokenToRequest(config))
             return { status: true, data: res.data }
         } catch (error) {
             console.error(error)
             return { status: false, error }
         }
     }
-    async deleteTransaction(id) {
+    async deleteBudget(id) {
         try {
-            const res = await axios.delete(BASE_URL + `/transactions/delete/${id}`, authService.attachTokenToRequest(config))
+            const res = await axios.delete(BASE_URL + `budgets/delete/${id}`, authService.attachTokenToRequest(config))
             return { status: true, data: res.data }
         } catch (error) {
             console.error(error)
@@ -45,5 +45,5 @@ class TransactionService {
     }
 }
 
-const transactionService = new TransactionService()
-export default transactionService
+const budgetService = new BudgetService()
+export default budgetService

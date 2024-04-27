@@ -15,7 +15,7 @@ const Dash = () => {
 
   return (
     <div>
-      <nav className="absolute mt-20 bg-gray-200 left-1/2 transform -translate-x-1/2 w-2/3 rounded-xl shadow-md px-8 py-4 z-10">
+      <nav className="absolute mt-20 bg-gray-200 left-1/2 transform -translate-x-1/2 w-2/3 rounded-xl shadow-md px-8 z-10">
         <ul className="flex justify-between mt-4">
           {tabs.map((tab) => (
             <li

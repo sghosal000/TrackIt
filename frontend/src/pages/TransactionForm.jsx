@@ -1,29 +1,43 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import transactionService from '../apiservice/TransactionService';
+
 
 const TransactionForm = ({ type }) => {
-	// Refs for form fields
 	const amountRef = useRef(null);
 	const categoryNameRef = useRef(null);
 	const noteRef = useRef(null);
-	const typeRef = useRef(type);
 
-	// Function to handle form submission
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		// Get values from refs
-		const amount = amountRef.current.value;
-		const categoryName = categoryNameRef.current.value;
-		const note = noteRef.current.value;
-		const type = typeRef.current.value;
-		// Send transaction data to backend or perform validation
-		// You can handle form submission logic here
-	};
+	const [message, setMessage] = useState('')
+
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+
+		const newTransaction = {
+			amount: amountRef.current.value,
+			categoryName: categoryNameRef.current.value,
+			note: noteRef.current.value,
+			type: type,
+		}
+		
+		console.log(newTransaction)
+		const res = await transactionService.addTransaction(newTransaction)
+		
+		if (res.status){
+			setMessage("Transaction added")
+			amountRef.current.value = ""
+			categoryNameRef.current.value = ""
+			noteRef.current.value = ""
+		}
+		else{
+			setMessage("Error.. try again")
+		}
+	}
 
 	return (
 		<div className="flex flex-col items-center bg-zinc p-6 rounded-lg shadow-md bg-gray-100">
 			<h3 className="text-lg font-semibold mb-4">Add Transaction</h3>
-			<form className="flex flex-col items-center space-y-4" onSubmit={handleSubmit}>
-				{/* Amount */}
+			<p>{message}</p>
+			<form className="flex flex-col items-center space-y-4 form-control" onSubmit={handleSubmit}>
 				<label className="text-gray-600">
 					Amount:
 					<input
