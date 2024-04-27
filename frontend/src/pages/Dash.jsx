@@ -22,7 +22,7 @@ const Dash = () => {
               key={tab.name}
               className={`pb-3 text-gray-600 font-medium cursor-pointer ${
                 activeTab === tab.name.toLowerCase()
-                  ? 'font-extrabold text-lg  text-blue-900'
+                  ? 'font-extrabold text-xl text-blue-800'
                   : 'hover:text-blue-200'
               }`}
               onClick={() => setActiveTab(tab.name.toLowerCase())}
@@ -35,6 +35,7 @@ const Dash = () => {
       <div>
         <Render activeTab={activeTab} />
       </div>
+      
     </div>
   );
 };

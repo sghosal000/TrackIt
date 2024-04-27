@@ -22,6 +22,7 @@ const RecurringTransactionForm = () => {
     const unit = unitRef.current.value;
     const note = noteRef.current.value;
     // Send transaction data to backend or perform validation
+    
     // You can handle form submission logic here
   };
 
@@ -30,22 +31,20 @@ const RecurringTransactionForm = () => {
       <h3 className="text-lg font-semibold mb-4">Add Recurring Transaction</h3>
       <form className="flex flex-col items-center space-y-4" onSubmit={handleSubmit}>
         {/* Amount */}
-        <label className="text-gray-600">
-          Amount:
+
           <input
             type="number"
             ref={amountRef}
-            className="input-field"
+            className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             style={{border: '1px solid #ccc'}}
+            placeholder="Amount"
             required
           />
-        </label>
         {/* Type */}
-        <label className="text-gray-600">
-          Type:
+
           <select
             ref={typeRef}
-            className="input-field"
+            className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             style={{border: '1px solid #ccc'}}
             required
           >
@@ -54,13 +53,11 @@ const RecurringTransactionForm = () => {
             <option value="expense">Expense</option>
             <option value="investment">Investment</option>
           </select>
-        </label>
         {/* Category */}
-        <label className="text-gray-600">
-          Category:
+
           <select
             ref={categoryRef}
-            className="input-field"
+            className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             style={{border: '1px solid #ccc'}}
             required
           >
@@ -71,34 +68,29 @@ const RecurringTransactionForm = () => {
             <option value="Transportation">Transportation</option>
             <option value="Other">Other</option>
           </select>
-        </label>
         {/* Start Date */}
-        <label className="text-gray-600">
-          Start Date:
+        
           <input
             type="date"
             ref={startDateRef}
-            className="input-field"
+            className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             style={{border: '1px solid #ccc'}}
           />
-        </label>
         {/* Frequency Interval */}
-        <label className="text-gray-600">
-          Frequency Interval:
+
           <input
             type="number"
             ref={intervalRef}
-            className="input-field"
+            className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             style={{border: '1px solid #ccc'}}
+            placeholder='Frequency Interval'
             required
           />
-        </label>
         {/* Frequency Unit */}
-        <label className="text-gray-600">
-          Frequency Unit:
+
           <select
             ref={unitRef}
-            className="input-field"
+            className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             style={{border: '1px solid #ccc'}}
             required
           >
@@ -108,18 +100,15 @@ const RecurringTransactionForm = () => {
             <option value="month">Month</option>
             <option value="year">Year</option>
           </select>
-        </label>
         {/* Note */}
-        <label className="text-gray-600">
-          Note:
           <textarea
             ref={noteRef}
-            className="input-field"
+            className="input-field border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             style={{border: '1px solid #ccc', minHeight: '80px'}}
+            placeholder='Note'
           />
-        </label>
         {/* Submit button */}
-        <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded" type="submit">Add</button>
+				<button className="bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded w-3/4" type="submit">Add</button>
       </form>
     </div>
   );
