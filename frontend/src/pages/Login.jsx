@@ -19,7 +19,7 @@ const Login = () => {
             } else {
                 setMessage("Invalid username or password");
             }
-        } catch (error) {   `   `
+        } catch (error) {
             console.error(error);
             setMessage("Login failed");
         }

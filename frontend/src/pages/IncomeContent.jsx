@@ -18,7 +18,7 @@ function IncomeContent({ incomes }) {
 								<th className="py-2">Note</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody className='bg-green-100'>
 							{incomes && incomes.map(income =>
 								<tr key={income._id}>
 									<td className="border-b py-2">{income.createdAt.split('T')[0]}</td>
